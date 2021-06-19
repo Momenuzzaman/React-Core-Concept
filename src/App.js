@@ -2,21 +2,29 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const nayoks =  ["Razzak","Jabbar", "Manna","Jashim"];
+  
   let products = [
     {name : "Photoshop",price : "$230"},
     {name : "Illustrator",price : "$130"},
     {name : "PDF",price : "$50"}
-
-  ]
+  ];
+  const nakoyNames = nayoks.map(nayok => nayok);
+  console.log(nakoyNames);
   return (
     <div className="App">
       <header className="App-header">
        <p>React</p>
+       <ul>
+         {
+           nayoks.map(nayok =><li>{nayok}</li>)
+         }
+       </ul>
+       {
+         products.map(pd=><Product product = {pd}></Product>)
+       }
        <Person name="Kamal khondokar" job="student" ></Person>
        <Person name="Rabbi Hassan" job="football"></Person>
-       <Product product= {products[0]}></Product>
-       <Product product= {products[1]}></Product>
-       <Product product= {products[2]}></Product>
       </header>
     </div>
   );
@@ -30,10 +38,11 @@ function Product(props){
     width :"200px",
     float : "left"
   }
+  const {name,price} = props.product;
   return (
     <div style ={productStyle}>
-      <h3>{props.product.name}</h3>
-      <h4>{props.product.price}</h4>
+      <h3>{name}</h3>
+      <h4>{price}</h4>
       <button>By Now</button>
     </div>
   )
