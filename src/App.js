@@ -65,10 +65,13 @@ function Person(props){
  }
 
  function Counter(){
-   const [count, setCount] = useState(100);
+   const [count, setCount] = useState(0);
+   const handleIncrease = () => setCount(count +1);
    return(
      <div>
        <h1>Count:{count}</h1>
+       <button onClick = {() => setCount(count +1)}>Increase</button>
+       <button onClick = {() => setCount(count -1)}>Decrease</button>
      </div>
    )
  }
